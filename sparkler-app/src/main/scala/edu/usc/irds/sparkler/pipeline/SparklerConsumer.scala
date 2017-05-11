@@ -41,18 +41,12 @@ class SparklerConsumer {
 
     Executors.newSingleThreadExecutor.execute(new Runnable {
       override def run(): Unit = {
-        try {
-          while (true) {
-            val records = consumer.poll(1000)
+        while (true) {
+          val records = consumer.poll(1000)
 
-            for (record <- records) {
-              println("Received message: (" + record + ")")
-            }
+          for (record <- records) {
+            println("Received message: (" + record + ")")
           }
-        }catch {
-          case e: KafkaException => println("there was a exception")
-        } finally {
-          shutdown()
         }
       }
     })
