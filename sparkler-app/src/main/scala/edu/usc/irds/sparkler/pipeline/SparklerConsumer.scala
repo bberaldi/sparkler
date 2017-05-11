@@ -4,6 +4,7 @@ import java.util.concurrent.{ExecutorService, Executors}
 import java.util.{Collections, Properties}
 
 import edu.usc.irds.sparkler.service.Injector
+import edu.usc.irds.sparkler.util.JobUtil
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.common.KafkaException
 
@@ -52,10 +53,11 @@ class SparklerConsumer {
           for (record <- records) {
             println("Received message: (" + record.value() + ")")
             //sjob-1494519073538
+            val jobId = JobUtil.newJobId()
             //bin/sparkler.sh inject -id sjob-1494519073538 -su http://www.bbc.com/news -su http://espn.go.com/
             var injectorArgs = ArrayBuffer[String]()
             injectorArgs += "-id"
-            injectorArgs += "sjob-1494519073538"
+            injectorArgs += jobId
             injectorArgs += "-su"
             injectorArgs += record.value()
             injector.run(injectorArgs.toArray)
