@@ -36,6 +36,7 @@ trait CliTool extends Runnable {
 
   def parseArgs(ags: Array[String]): Unit = {
     try {
+      println("CliTool")
       for (e <- ags) println(e)
       cliParser.parseArgument(ags.toList)
     } catch {
