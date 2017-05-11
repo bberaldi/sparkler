@@ -45,7 +45,11 @@ class SparklerConsumer {
           val records = consumer.poll(1000)
 
           for (record <- records) {
-            println("Received message: (" + record + ")")
+            println("Received message: (" + record.value() + ")")
+            //sjob-1494519073538
+            //bin/sparkler.sh inject -id sparkler-job-1465352569649 -su http://www.bbc.com/news -su http://espn.go.com/
+            //bin/sparkler.sh crawl -id sparkler-job-1465352569649  -m local[*] -i 1
+            new Crawler().run(args)
           }
         }
       }

@@ -143,6 +143,8 @@ class Injector extends CliTool {
 object Injector extends Loggable {
 
   def main(args: Array[String]): Unit = {
+    println("Injector")
+    println(args)
     val injector = new Injector()
     injector.run(args)
     println(s">>jobId = ${injector.jobId}")

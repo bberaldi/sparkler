@@ -215,6 +215,8 @@ object Crawler extends Loggable with Serializable{
   }
 
   def main(args: Array[String]): Unit = {
+    println("Crawler")
+    println(args)
     new Crawler().run(args)
   }
 }
