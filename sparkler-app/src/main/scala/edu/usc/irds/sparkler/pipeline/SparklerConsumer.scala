@@ -66,7 +66,7 @@ class SparklerConsumer {
             //bin/sparkler.sh crawl -id sparkler-job-1465352569649  -m local[*] -i 1
             var crawlerArgs = ArrayBuffer[String]()
             crawlerArgs += "-id"
-            crawlerArgs += "sjob-1494519073538"
+            crawlerArgs += jobId
             crawlerArgs += "-m"
             crawlerArgs += "local[*]"
             crawlerArgs += "-i"
