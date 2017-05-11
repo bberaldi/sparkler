@@ -18,7 +18,7 @@
 package edu.usc.irds.sparkler
 
 import edu.usc.irds.sparkler.base.Loggable
-import edu.usc.irds.sparkler.pipeline.Crawler
+import edu.usc.irds.sparkler.pipeline.{Crawler, SparklerConsumer}
 import edu.usc.irds.sparkler.service.Injector
 
 /**
@@ -50,5 +50,9 @@ object Main extends Loggable {
         System.exit(1)
       }
     }
+
+    val sparklerConsumer = new SparklerConsumer()
+    sparklerConsumer.run()
+
   }
 }

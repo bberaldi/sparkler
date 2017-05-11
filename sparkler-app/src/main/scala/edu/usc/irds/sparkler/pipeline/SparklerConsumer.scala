@@ -4,6 +4,8 @@ import java.util.concurrent.{ExecutorService, Executors}
 import java.util.{Collections, Properties}
 
 import org.apache.kafka.clients.consumer.KafkaConsumer
+import org.apache.kafka.common.KafkaException
+import scala.collection.JavaConversions._
 
 /**
   * Created by beraldi on 10/05/17.
@@ -39,12 +41,18 @@ class SparklerConsumer {
 
     Executors.newSingleThreadExecutor.execute(new Runnable {
       override def run(): Unit = {
-        while (true) {
-          val records = consumer.poll(1000)
+        try {
+          while (true) {
+            val records = consumer.poll(1000)
 
-          for (record <- records) {
-            println("Received message: (" + record + ")")
+            for (record <- records) {
+              println("Received message: (" + record + ")")
+            }
           }
+        }catch {
+          case e: KafkaException => println("there was a exception")
+        } finally {
+          shutdown()
         }
       }
     })
