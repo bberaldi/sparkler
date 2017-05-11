@@ -49,7 +49,7 @@ class SparklerConsumer {
             //sjob-1494519073538
             //bin/sparkler.sh inject -id sparkler-job-1465352569649 -su http://www.bbc.com/news -su http://espn.go.com/
             //bin/sparkler.sh crawl -id sparkler-job-1465352569649  -m local[*] -i 1
-            new Crawler().run(args)
+            //new Crawler().run(args)
           }
         }
       }
