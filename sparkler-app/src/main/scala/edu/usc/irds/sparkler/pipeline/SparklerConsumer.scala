@@ -28,8 +28,6 @@ class SparklerConsumer {
 
   val consumer = new KafkaConsumer[String, String](props)
   var executor: ExecutorService = null
-  val injector = new Injector()
-  val crawler = new Crawler()
 
   def putProperty(key: String, value: String): Unit ={
     props.put(key, value)
@@ -51,6 +49,10 @@ class SparklerConsumer {
           val records = consumer.poll(1000)
 
           for (record <- records) {
+
+            val injector = new Injector()
+            val crawler = new Crawler()
+
             println("Received message: (" + record.value() + ")")
             //sjob-1494519073538
             val jobId = JobUtil.newJobId()
