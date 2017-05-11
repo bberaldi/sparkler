@@ -51,8 +51,8 @@ object Main extends Loggable {
       }
     }
 
-    val sparklerConsumer = new SparklerConsumer()
-    sparklerConsumer.run()
+//    val sparklerConsumer = new SparklerConsumer()
+//    sparklerConsumer.run()
 
   }
 }
