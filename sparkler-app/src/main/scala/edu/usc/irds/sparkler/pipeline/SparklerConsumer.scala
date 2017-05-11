@@ -51,25 +51,25 @@ class SparklerConsumer {
 
           for (record <- records) {
             println("Received message: (" + record.value() + ")")
-//            //sjob-1494519073538
-//            //bin/sparkler.sh inject -id sjob-1494519073538 -su http://www.bbc.com/news -su http://espn.go.com/
-//            var injectorArgs = ArrayBuffer[String]()
-//            injectorArgs += "-id"
-//            injectorArgs += "sjob-1494519073538"
-//            injectorArgs += "-su"
-//            injectorArgs += record.value()
-//            injector.run(injectorArgs.toArray)
-//            println(s">>jobId = ${injector.jobId}")
-//
-//            //bin/sparkler.sh crawl -id sparkler-job-1465352569649  -m local[*] -i 1
-//            var crawlerArgs = ArrayBuffer[String]()
-//            crawlerArgs += "-id"
-//            crawlerArgs += "sjob-1494519073538"
-//            crawlerArgs += "-m"
-//            crawlerArgs += "local[*]"
-//            crawlerArgs += "-i"
-//            crawlerArgs += "1"
-//            crawler.run(crawlerArgs.toArray)
+            //sjob-1494519073538
+            //bin/sparkler.sh inject -id sjob-1494519073538 -su http://www.bbc.com/news -su http://espn.go.com/
+            var injectorArgs = ArrayBuffer[String]()
+            injectorArgs += "-id"
+            injectorArgs += "sjob-1494519073538"
+            injectorArgs += "-su"
+            injectorArgs += record.value()
+            injector.run(injectorArgs.toArray)
+            println(s">>jobId = ${injector.jobId}")
+
+            //bin/sparkler.sh crawl -id sparkler-job-1465352569649  -m local[*] -i 1
+            var crawlerArgs = ArrayBuffer[String]()
+            crawlerArgs += "-id"
+            crawlerArgs += "sjob-1494519073538"
+            crawlerArgs += "-m"
+            crawlerArgs += "local[*]"
+            crawlerArgs += "-i"
+            crawlerArgs += "1"
+            crawler.run(crawlerArgs.toArray)
           }
         }
       }
