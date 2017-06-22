@@ -167,10 +167,10 @@ class Crawler extends CliTool {
       LOG.info("Committing crawldb..")
       solrc.commitCrawlDb()
     }
-    //solrc.close()
+    solrc.close()
     //PluginService.shutdown(job)
     LOG.info("Shutting down Spark CTX..")
-    //sc.stop()
+    sc.stop()
   }
 }
 
