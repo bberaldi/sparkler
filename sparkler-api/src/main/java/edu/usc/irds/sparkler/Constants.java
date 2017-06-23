@@ -151,6 +151,7 @@ public interface Constants {
         String ID = "id";
         String CRAWL_ID = "crawl_id";
         String URL = "url";
+        String URL_ID = "url_id";
         String GROUP = "group";
         String FETCH_TIMESTAMP = "fetch_timestamp";
         String RETRIES_SINCE_FETCH = "retries_since_fetch";
